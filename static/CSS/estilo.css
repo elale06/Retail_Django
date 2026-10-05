@@ -1,0 +1,144 @@
+/* =========================
+   ESTILOS GENERALES
+   ========================= */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+}
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+   ========================= */
+
+.contenedor {
+    width: 80%;
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   TÍTULOS
+   ========================= */
+
+h1 {
+    text-align: center;
+    color: #1a237e;
+}
+
+h2 {
+    color: #283593;
+}
+
+/* =========================
+   ENCABEZADO
+   ========================= */
+
+header {
+    background-color: #1a237e;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header img {
+    margin-bottom: 10px;
+}
+
+/* =========================
+   MENÚ
+   ========================= */
+
+nav {
+    background-color: #283593;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ffca28;
+}
+
+/* =========================
+   BOTONES
+   ========================= */
+
+.boton {
+    display: inline-block;
+    background-color: #1a73e8;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.boton:hover {
+    background-color: #1557b0;
+}
+
+/* =========================
+   BOTÓN VOLVER AL MENÚ
+   ========================= */
+
+.volver-menu {
+    display: block;
+    width: fit-content;
+    margin: 30px auto 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* =========================
+   FORMULARIOS
+   ========================= */
+
+form {
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #1a73e8;
+    outline: none;
+}
+
+/* =========================
+   PIE DE PÁGINA
+   ========================= */
+
+footer {
+    margin-top: 40px;
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}

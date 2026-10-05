@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios de nuestros servicios</title>
+</head>
+
+<body>
+
+    <h1>Precios de nuestros servicios</h1>
+
+    <ul>
+
+        {% for precio in precios %}
+        <li>
+            <h2>{{ precio.servicio.nombre }}</h2>
+
+            <p>
+                <strong>Precio:</strong>
+                ${{ precio.precio }} {{ precio.moneda }}
+            </p>
+
+            <p>
+                <strong>Descuento:</strong>
+                {{ precio.descuento }}%
+            </p>
+
+            <p>
+                <strong>Observación:</strong>
+                {{ precio.observacion }}
+            </p>
+        </li>
+
+        <hr>
+        {% endfor %}
+
+    </ul>
+
+    <img src="/static/images/gif/precios.gif"
+         alt="Error en la carga de la imagen"
+         width="100">
+
+    <br>
+
+    <a href="/">Volver al menú</a>
+
+</body>
+</html>

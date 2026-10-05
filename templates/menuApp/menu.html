@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Menú</title>
+
+    <link rel="stylesheet" href="{% static 'CSS/estilos.css' %}">
+</head>
+
+<body>
+
+    <h1>Menú</h1>
+
+    <img
+        src="{% static 'images/estaticas/django.png' %}"
+        width="150"
+        height="150"
+        alt="Django"
+    >
+
+    <ul>
+        <li>
+            <a href="/informacion/">Información</a>
+        </li>
+
+        <li>
+            <a href="/servicios/">Servicios</a>
+        </li>
+
+        <li>
+            <a href="/servicios/precios/">Precios</a>
+        </li>
+    </ul>
+
+</body>
+</html>

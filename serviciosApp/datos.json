@@ -1,0 +1,29 @@
+[
+  {
+    "model": "serviciosApp.servicio",
+    "pk": 1,
+    "fields": {
+      "nombre": "Diseño Web",
+      "descripcion": "Creamos sitios web modernos y adaptables.",
+      "disponibilidad": "Inmediata"
+    }
+  },
+  {
+    "model": "serviciosApp.servicio",
+    "pk": 2,
+    "fields": {
+      "nombre": "Desarrollo Django",
+      "descripcion": "Desarrollamos aplicaciones web utilizando Django.",
+      "disponibilidad": "Por confirmar"
+    }
+  },
+  {
+    "model": "serviciosApp.servicio",
+    "pk": 3,
+    "fields": {
+      "nombre": "Mantenimiento Web",
+      "descripcion": "Mantenemos y actualizamos tu sitio web.",
+      "disponibilidad": "Inmediata"
+    }
+  }
+]

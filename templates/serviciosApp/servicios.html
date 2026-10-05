@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}"> 
+    <title>Nuestros Servicios</title>
+
+    <style>
+        .video-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            max-height: 550px;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Nuestros Servicios</h1>
+
+    <!-- Video Educación Continua INACAP -->
+    <div class="video-container">
+        <video controls>
+            <source src="{% static 'images/videos/Educación Continua INACAP.mp4' %}" type="video/mp4">
+            Tu navegador no soporta la reproducción de videos.
+        </video>
+    </div>
+
+    {% for servicio in servicios %}
+
+        <h2>{{ servicio.nombre }}</h2>
+
+        <p>
+            <strong>ID:</strong>
+            {{ servicio.id }}
+        </p>
+
+        <p>
+            <strong>Descripción:</strong>
+            {{ servicio.descripcion }}
+        </p>
+
+        <p>
+            <strong>Disponibilidad:</strong>
+            {{ servicio.disponibilidad }}
+        </p>
+
+        <hr>
+
+    {% endfor %}
+
+    <br>
+
+    <a href="/">Volver al menú principal</a>
+
+</body>
+</html>
