@@ -1,8 +1,8 @@
 from django.urls import path
-from serviciosApp import views
+from . import views
 
 urlpatterns = [
-    path('', views.servicios, name='servicios'),
+    path('', views.servicios_list, name='listar_servicios'),
     path('crear/', views.servicio_crear),
     path('editar/<int:id>/', views.servicio_editar),
     path('eliminar/<int:id>/', views.servicio_eliminar),

@@ -11,7 +11,7 @@ class PrecioServicioCrearForm(forms.ModelForm):
         model = PrecioServicio
         fields = ['precio', 'descuento', 'moneda', 'observacion']
 
-class PrecioServicio(forms.ModelForm):
+class PrecioServicioForm(forms.ModelForm):
     class Meta:
         model = PrecioServicio
         fields = '__all__'
