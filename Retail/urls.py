@@ -6,7 +6,7 @@ def menu(request):
     return render(request, 'menuApp/menu.html')
 
 def informacion(request):
-    return render(request, 'infoApp/index.html')
+    return render(request, 'infoApp/info.html')
 
 urlpatterns = [ 
     path('admin/', admin.site.urls),
