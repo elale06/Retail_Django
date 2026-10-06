@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar</title>
+</head>
+<body>
+    <div class="nav">
+        <a href="/">Menú</a>
+        <a href="/informacion/">Información</a>
+        <a href="/servicios/">Servicios</a>
+        <a href="/servicios/login/">Login</a>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Listar y Gestionar Servicios</h2>
+            <div class="top-bar">
+                <a class="btn" href="/servicios/crear/">Crear Servicio</a>
+                <a class="btn btn-back" href="/">Volver al menú</a>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Disponibilidad</th>
+                        <th>Observación</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in servicios %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ s.nombre }}</td>
+                        <td>{{ s.descripcion }}</td>
+                        <td>{{ s.disponibilidad }}</td>
+                        <td>{{ s.observacion }}</td>
+                        <td>{{ s.precio }}</td>
+                        <td>
+                            {% if s.precioservicio.observacion %}
+                                {{ s.precioservicio.observacion }}
+                            {% else %}
+                                Sin observación
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if s.precioservicio %}
+                                {{ s.precioservicio.precio }} {{ s.precioservicio.moneda }}
+                            {% else %}
+                                Sin precio
+                            {% endif %}
+                        </td>
+                        <td>
+                            <div class="actions">
+                                <a class="btn-edit" href="/servicios/editar/{{ s.id }}/">
+                                    Editar
+                                </a>
+                                <a class="btn-delete" href="/servicio/eliminar/{{ s.id }}/">
+                                    Eliminar
+                                </a>
+                            </div> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -12,5 +12,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', menu, name='menu'),
     path('informacion/', informacion),
-    # path('servicios/', include('serviciosApp.urls')),
+    path('servicios/', include('serviciosApp.urls')),
 ]
