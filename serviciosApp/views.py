@@ -16,9 +16,11 @@ def servicio_crear(request):
     if request .method == 'POST':
         if form_servicio.is_valid() and form_precio.is_valid():
             servicio = form_servicio.save()
+
             precio = form_precio.save(commit=False)
             precio.servicio = servicio
             precio.save()
+            
             return redirect('/servicios/')
 
     return render(request, 'serviciosApp/crear.html', {
