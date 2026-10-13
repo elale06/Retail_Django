@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Servicio</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>Crear Servicio</h2>
+            <form method="post">
+                {% csrf_token %}
+
+                <h3>Datos del Servicio</h3>
+                {% form_servicio.as_p %}
+
+                <h3>Precio</h3>
+                {{ form_precio.as_p }}
+
+                <button type="submit">Guardar</button>
+            </form>
+            <a class="back" href="/servicios/">Volver a Servicios</a>
+        </div>
+    </div>
+</body>
+
+</html>
