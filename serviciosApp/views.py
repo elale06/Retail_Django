@@ -27,7 +27,7 @@ def servicio_crear(request):
     })
 
 def precio_crear(request):
-    form = PrecioServicioCrearForm(request.POST or None)
+    form = PrecioServicioForm(request.POST or None)
 
     if form.is_valid():
         form.save()
