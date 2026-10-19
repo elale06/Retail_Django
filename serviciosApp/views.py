@@ -53,15 +53,15 @@ def editar_servicio(request, id):
     )
 
     if request.method == 'POST':
-        servicio.nombre = request.POST.get('nombre')
-        servicio.descripcion = request.POST.get('descripcion')
-        servicio.disponibilidad = request.POST.get('disponibilidad')
+        servicio.nombre = request.POST.get('nombre') or servicio.nombre
+        servicio.descripcion = request.POST.get('descripcion') or servicio.descripcion
+        servicio.disponibilidad = request.POST.get('disponibilidad') or servicio.disponibilidad
         servicio.save()
 
-        precio.precio = request.POST.get('precio') or 0
-        precio.descuento = request.POST.get('descuento') or 0
-        precio.moneda = request.POST.get('moneda') or 'CLP'
-        precio.observacion = request.POST.get('observacion') or ''
+        precio.precio = request.POST.get('precio') or precio.precio
+        precio.descuento = request.POST.get('descuento') or precio.descuento
+        precio.moneda = request.POST.get('moneda') or precio.moneda
+        precio.observacion = request.POST.get('observacion') or precio.observacion
         precio.save()
 
         return redirect('listar_servicios')

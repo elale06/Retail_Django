@@ -19,31 +19,31 @@
     <div class="container card">
         <div class="card">
             <h2>Editar Servicio</h2>
-            <form method="POST">
+            <form method="POST" class="edit-form">
                 {% csrf_token %}
                 <h3>Datos del Servicio</h3>
 
                 <label>Nombre</label>
-                <input type="text" name="nombre" value="{{ servicio.nombre }}">
+                <input type="text" name="nombre" placeholder="{{ servicio.nombre }}">
 
                 <label>Descripción</label>
-                <textarea name="descripcion">{{ servicio.descripcion }}</textarea>
+                <textarea name="descripcion" placeholder="{{ servicio.descripcion }}"></textarea>
 
                 <label>Disponibilidad</label>
-                <input type="text" name="disponibilidad" value="{{ servicio.disponibilidad }}">
+                <input type="text" name="disponibilidad" placeholder="{{ servicio.disponibilidad }}">
 
                 <h3>Precio</h3>
                 <label>Precio</label>
-                <input type="number" name="precio" value="{{ precio.precio }}">
+                <input type="number" name="precio" placeholder="{{ precio.precio }}">
 
                 <label>Descuento</label>
-                <input type="number" name="descuento" value="{{ precio.descuento }}">
+                <input type="number" name="descuento" placeholder="{{ precio.descuento }}">
 
                 <label>Moneda</label>
-                <input type="text" name="moneda" value="{{ precio.moneda }}">
+                <input type="text" name="moneda" placeholder="{{ precio.moneda }}">
 
                 <label>Observación</label>
-                <textarea name="observacion">{{ precio.observacion }}</textarea>
+                <textarea name="observacion" placeholder="{{ precio.observacion }}"></textarea>
 
                 <button type="submit">Actualizar Servicio</button>
             </form>

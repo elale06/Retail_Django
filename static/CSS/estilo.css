@@ -179,6 +179,18 @@ textarea:focus {
     outline: none;
 }
 
+.edit-form input::placeholder,
+.edit-form textarea::placeholder {
+    color: #78909c;
+    opacity: 0.55;
+    font-style: italic;
+}
+
+.edit-form input:focus::placeholder,
+.edit-form textarea:focus::placeholder {
+    opacity: 0.35;
+}
+
 /* =========================
    PIE DE PÁGINA
    ========================= */
