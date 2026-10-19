@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Servicio</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <div class="nav">
+        <a href="/">Menú</a>
+        <a href="/informacion/">Información</a>
+        <a href="/servicios/">Servicios</a>
+        <a href="/servicios/login/">Login</a>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h2>Editar Servicio</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <h3>Datos del Servicio</h3>
+
+                <label>Nombre</label>
+                <input type="text" name="nombre" value="{{ servicio.nombre }}">
+
+                <label>Descripción</label>
+                <textarea name="descripcion">{{ servicio.descripcion }}</textarea>
+
+                <label>Disponibilidad</label>
+                <input type="text" name="disponibilidad" value="{{ servicio.disponibilidad }}">
+
+                <h3>Precio</h3>
+                <label>Precio</label>
+                <input type="number" name="precio" value="{{ precio.precio }}">
+
+                <label>Descuento</label>
+                <input type="number" name="descuento" value="{{ precio.descuento }}">
+
+                <label>Moneda</label>
+                <input type="text" name="moneda" value="{{ precio.moneda }}">
+
+                <label>Observación</label>
+                <textarea name="observacion">{{ precio.observacion }}</textarea>
+
+                <button type="submit">Actualizar Servicio</button>
+            </form>
+            <a class="back" href="/servicios/">Volver a Servicios</a>
+        </div>
+    </div>
+</body>
+</html>

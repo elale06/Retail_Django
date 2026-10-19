@@ -38,3 +38,35 @@ def precio_crear(request):
     return render(request, 'serviciosApp/precio.html', {
         'form': form
     })
+
+def editar_servicio(request, id):
+    servicio = get_object_or_404(Servicio, id = id)
+
+    precio, created = PrecioServicio.objects.get_or_create(
+        servicio = servicio,
+        defaults = {
+            'precio': 0,
+            'descuento': 0,
+            'moneda': 'CLP',
+            'observacion': ''
+        }
+    )
+
+    if request.method == 'POST':
+        servicio.nombre = request.POST.get('nombre')
+        servicio.descripcion = request.POST.get('descripcion')
+        servicio.disponibilidad = request.POST.get('disponibilidad')
+        servicio.save()
+
+        precio.precio = request.POST.get('precio') or 0
+        precio.descuento = request.POST.get('descuento') or 0
+        precio.moneda = request.POST.get('moneda') or 'CLP'
+        precio.observacion = request.POST.get('observacion') or ''
+        precio.save()
+
+        return redirect('listar_servicios')
+
+    return render(request, 'serviciosApp/editar.html', {
+        'servicio': servicio,
+        'precio': precio
+    })
