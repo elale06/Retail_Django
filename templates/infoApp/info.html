@@ -1,4 +1,5 @@
 {% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto RETAIL Django - Info App</title>
-    <img src="{% static 'images/estaticas/webpay.png' %}" alt="Logo de la aplicación" width="200">  
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">   
+    <link rel="stylesheet" href="{% static 'CSS/estilo.css' %}">
 </head>
 <body>
 
@@ -15,12 +15,15 @@
         <a href="/">Volver al menú principal</a>
     </nav>
 
-    <section>
+    <main class="page-shell">
+    <section class="container info-card">
+        <img class="brand-image" src="{% static 'images/estaticas/webpay.png' %}" alt="Logo de la aplicación" width="200">
         <h1>Bienvenido a la aplicación InfoApp</h1>
         <h2>Esta es una aplicación de ejemplo para el proyecto RETAIL Django.</h2>
         <h3>Aquí puedes encontrar información relevante sobre la aplicación y su funcionalidad.</h3>
         <h4>Explora las diferentes secciones y disfruta de la experiencia.</h4>
     </section>
+    </main>
 
 </body>
 </html>

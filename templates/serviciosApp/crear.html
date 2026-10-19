@@ -1,15 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/estilo.css' %}">
     <title>Crear Servicio</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="card">
+    <div class="page-shell">
+        <div class="container card">
             <h2>Crear Servicio</h2>
             <form method="post">
                 {% csrf_token %}

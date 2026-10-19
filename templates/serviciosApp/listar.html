@@ -1,20 +1,22 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/estilo.css' %}">
     <title>Listar</title>
 </head>
 <body>
-    <div class="nav">
+    <nav class="nav">
         <a href="/">Menú</a>
         <a href="/informacion/">Información</a>
         <a href="/servicios/">Servicios</a>
         <a href="/servicios/login/">Login</a>
-    </div>
+    </nav>
 
-    <div class="container">
-        <div class="card">
+    <div class="page-shell">
+        <div class="container card table-card">
             <h2>Listar y Gestionar Servicios</h2>
             <div class="top-bar">
                 <a class="btn" href="/servicios/crear/">Crear Servicio</a>

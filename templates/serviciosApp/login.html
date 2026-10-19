@@ -1,12 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/estilo.css' %}">
     <title>Login</title>
 </head>
 <body>
-    <div class="box">
+    <main class="page-shell">
+    <div class="container card login-box">
         <h1>Formulario de Ingreso</h1>
         <p>Selecciona una opción del sistema</p>
         
@@ -19,5 +22,6 @@
             Volver al menú principal
         </a>
     </div>
+    </main>
 </body>
 </html>

@@ -1,19 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/estilo.css' %}">
     <title>Precios de nuestros servicios</title>
 </head>
 
 <body>
 
+    <main class="page-shell">
+    <div class="container">
     <h1>Precios de nuestros servicios</h1>
 
-    <ul>
+    <ul class="price-list">
 
         {% for precio in precios %}
-        <li>
+        <li class="price-item">
             <h2>{{ precio.servicio.nombre }}</h2>
 
             <p>
@@ -32,18 +36,19 @@
             </p>
         </li>
 
-        <hr>
         {% endfor %}
 
     </ul>
 
-    <img src="/static/images/gif/precios.gif"
+    <img class="price-image" src="{% static 'images/gif/precios.gif' %}"
          alt="Error en la carga de la imagen"
          width="100">
 
     <br>
 
-    <a href="/">Volver al menú</a>
+    <a class="boton" href="/">Volver al menú</a>
+    </div>
+    </main>
 
 </body>
 </html>

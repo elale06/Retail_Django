@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %}"> 
+    <link rel="stylesheet" href="{% static 'CSS/estilo.css' %}"> 
     <title>Nuestros Servicios</title>
 
     <style>
@@ -26,18 +26,24 @@
 </head>
 <body>
 
-    <h1>Nuestros Servicios</h1>
+    <header class="hero-header">
+        <h1>Nuestros Servicios</h1>
+        <p>Soluciones pensadas para hacer crecer tu negocio.</p>
+    </header>
 
     <!-- Video Educación Continua INACAP -->
+    <main class="page-shell">
     <div class="video-container">
         <video controls>
-            <source src="{% static 'images/videos/Educación Continua INACAP.mp4' %}" type="video/mp4">
+            <source src="{% static 'images/videos/Educacion_Continua_INACAP.mp4' %}" type="video/mp4">
             Tu navegador no soporta la reproducción de videos.
         </video>
     </div>
 
+    <section class="service-list">
     {% for servicio in servicios %}
 
+        <article class="service-item">
         <h2>{{ servicio.nombre }}</h2>
 
         <p>
@@ -55,13 +61,15 @@
             {{ servicio.disponibilidad }}
         </p>
 
-        <hr>
+        </article>
 
     {% endfor %}
+    </section>
 
     <br>
 
-    <a href="/">Volver al menú principal</a>
+    <a class="boton" href="/">Volver al menú principal</a>
+    </main>
 
 </body>
 </html>

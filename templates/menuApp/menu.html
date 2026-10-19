@@ -7,22 +7,24 @@
 
     <title>Menú</title>
 
-    <link rel="stylesheet" href="{% static 'CSS/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/estilo.css' %}">
 </head>
 
 <body>
+    <main class="page-shell menu-page">
     <h1>Panel de Gestión RETAIL</h1>
-    <img src="/static/images/estaticas/django.png"
+    <img class="brand-image" src="{% static 'images/estaticas/django.png' %}"
         alt="Error en la carga de la imagen"
         width="100">
     <p>Sistema de administración de servicios y precios</p>
-    <a class="card" href="/informacion/">
+    <a class="card menu-card" href="/informacion/">
         <div class="title">Información</div>
         <div class="desc">Ver detalles del sistema</div>
     </a>
-    <a class="card" href="/servicios/login/">
+    <a class="card menu-card" href="/servicios/login/">
         <div class="title">Formulario de ingreso</div>
         <div class="desc">Acceso al sistema CRUD</div>
     </a>
+    </main>
 </body>
 </html>

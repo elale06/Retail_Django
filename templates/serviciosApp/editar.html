@@ -1,19 +1,22 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/estilo.css' %}">
     <title>Editar Servicio</title>
 </head>
 <body>
     <!-- NAVBAR -->
-    <div class="nav">
+    <nav class="nav">
         <a href="/">Menú</a>
         <a href="/informacion/">Información</a>
         <a href="/servicios/">Servicios</a>
         <a href="/servicios/login/">Login</a>
-    </div>
-    <div class="container">
+    </nav>
+    <div class="page-shell">
+    <div class="container card">
         <div class="card">
             <h2>Editar Servicio</h2>
             <form method="POST">
@@ -46,6 +49,7 @@
             </form>
             <a class="back" href="/servicios/">Volver a Servicios</a>
         </div>
+    </div>
     </div>
 </body>
 </html>
