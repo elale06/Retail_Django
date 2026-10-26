@@ -63,7 +63,7 @@
                                 <a class="btn-edit" href="/servicios/editar/{{ s.id }}/">
                                     Editar
                                 </a>
-                                <a class="btn-delete" href="{% url 'eliminar_servicio' s.id %}">
+                                <a class="btn-delete btn-abrir-modal" href="{% url 'eliminar_servicio' s.id %}" data-service-name="{{ s.nombre|escapejs }}">
                                     Eliminar
                                 </a>
                             </div> 
@@ -74,5 +74,57 @@
             </table>
         </div>
     </div>
+
+    <div class="modal-overlay" id="modal-eliminar" aria-hidden="true">
+        <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+            <button class="modal-close" type="button" aria-label="Cerrar">&times;</button>
+            <div class="modal-icon">!</div>
+            <h2 id="modal-titulo">Eliminar servicio</h2>
+            <p>¿Estás seguro de que deseas eliminar <strong id="nombre-servicio"></strong>?</p>
+            <p class="modal-warning">Esta acción no se puede deshacer.</p>
+            <div class="modal-actions">
+                <button class="btn-back" id="cancelar-eliminacion" type="button">Cancelar</button>
+                <a class="btn-delete" id="confirmar-eliminacion" href="#">Sí, eliminar</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const modalEliminar = document.getElementById('modal-eliminar');
+            const nombreServicio = document.getElementById('nombre-servicio');
+            const confirmarEliminacion = document.getElementById('confirmar-eliminacion');
+
+            function cerrarModalEliminar() {
+                modalEliminar.classList.remove('is-visible');
+                modalEliminar.setAttribute('aria-hidden', 'true');
+            }
+
+            document.querySelectorAll('.btn-abrir-modal').forEach(function (enlace) {
+                enlace.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    nombreServicio.textContent = enlace.dataset.serviceName;
+                    confirmarEliminacion.href = enlace.href;
+                    modalEliminar.classList.add('is-visible');
+                    modalEliminar.setAttribute('aria-hidden', 'false');
+                });
+            });
+
+            document.querySelector('.modal-close').addEventListener('click', cerrarModalEliminar);
+            document.getElementById('cancelar-eliminacion').addEventListener('click', cerrarModalEliminar);
+
+            modalEliminar.addEventListener('click', function (event) {
+                if (event.target === modalEliminar) {
+                    cerrarModalEliminar();
+                }
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' && modalEliminar.classList.contains('is-visible')) {
+                    cerrarModalEliminar();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
