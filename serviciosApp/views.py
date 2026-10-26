@@ -70,3 +70,8 @@ def editar_servicio(request, id):
         'servicio': servicio,
         'precio': precio
     })
+
+def servicio_eliminar(request, id):
+    servicio = get_object_or_404(Servicio, id=id)
+    servicio.delete()
+    return redirect('listar_servicios')

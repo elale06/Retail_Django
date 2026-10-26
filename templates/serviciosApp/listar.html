@@ -63,7 +63,7 @@
                                 <a class="btn-edit" href="/servicios/editar/{{ s.id }}/">
                                     Editar
                                 </a>
-                                <a class="btn-delete" href="/servicio/eliminar/{{ s.id }}/">
+                                <a class="btn-delete" href="{% url 'eliminar_servicio' s.id %}">
                                     Eliminar
                                 </a>
                             </div> 
