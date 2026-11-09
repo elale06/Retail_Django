@@ -1,9 +1,18 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.contrib.auth.models import User
+
+from django.contrib.auth.password_validation import validate_password
+from django.core.exceptions import ValidationError
+
 from .models import Servicio, PrecioServicio
 from .forms import ServicioForm, PrecioServicioForm, PrecioServicioCrearForm
 
 def login_servicios(request):
-    return render(request, 'serviciosApp/login.html')
+    if request.user.is_authenticated:
+        return redirect('listar_servicios')
 
 def servicios_list(request):
     servicios = Servicio.objects.all()
