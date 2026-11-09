@@ -33,6 +33,50 @@ def login_servicios(request):
     # Mostrar el formulario real de inicio de sesión
     return render(request, 'serviciosApp/login_form.html')
 
+def registro_usuario(request):
+    if request.user.is_authenticated:
+        return redirect('listar_servicios')
+
+    if request.method == 'POST':
+        username = request.POST.get('username', '').strip()
+        password = request.POST.get('password')
+        password2 = request.POST.get('password2')
+
+        if not username or not password or not password2:
+            messages.error(request, 'Todos los campos son obligatorios.')
+        elif User.objects.filter(username=username).exists():
+            messages.error(request, 'Este usuario ya existe.')
+        elif password != password2:
+            messages.error(request, 'Las contraseñas no coinciden.')
+        else:
+            # Validar contraseña según settings.py
+            try:
+                validate_password(password)
+
+                # Crear usuario utilizando el sistema seguro de Django
+                User.objects.create_user(
+                    username=username,
+                    password=password
+                )
+
+                messages.success(
+                    request,
+                    'Registrado exitosamente. Ahora puedes iniciar sesión.'
+                )
+
+                return redirect('login_servicios')
+            except ValidationError as error:
+                for mensaje in error.messages:
+                    messages.error(request, mensaje)
+    return render(request, 'serviciosApp/registro.html')
+
+@login_required(login_url='login_servicios')
+def cerrar_sesion(request):
+    if request.method == 'POST':
+        login(request)
+        return redirect('login_servicios')
+    return redirect('listar_servicios')
+
 def servicios_list(request):
     servicios = Servicio.objects.all()
     return render(request, 'serviciosApp/listar.html', {'servicios': servicios})
