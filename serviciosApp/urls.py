@@ -11,5 +11,5 @@ urlpatterns = [
     path('registro/', views.registro_usuario, name='registro_usuario'),
     path('logout/', views.cerrar_servicios, name='cerrar_sesion'),
 
-    #path('precios/', views.precios),
+    #path('precios/', views.precio_crear, name='precios),
 ]
