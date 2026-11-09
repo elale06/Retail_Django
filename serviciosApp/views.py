@@ -14,6 +14,25 @@ def login_servicios(request):
     if request.user.is_authenticated:
         return redirect('listar_servicios')
 
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        usuario = authenticate(
+            request,
+            username=username,
+            password=password
+        )
+
+        if usuario is not None:
+            login(request, usuario)
+            return redirect('listar_servicios')
+        else:
+            messages.error(request, 'Usuario o contraseña incorrectos.')
+
+    # Mostrar el formulario real de inicio de sesión
+    return render(request, 'serviciosApp/login_form.html')
+
 def servicios_list(request):
     servicios = Servicio.objects.all()
     return render(request, 'serviciosApp/listar.html', {'servicios': servicios})
