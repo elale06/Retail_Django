@@ -150,5 +150,11 @@ def editar_servicio(request, id):
 @login_required(login_url='login_servicios')
 def servicio_eliminar(request, id):
     servicio = get_object_or_404(Servicio, id=id)
-    servicio.delete()
-    return redirect('listar_servicios')
+
+    if request.method == 'POST':
+        servicio.delete()
+        return redirect('listar_servicios')
+
+    return render(request, 'serviciosApp/eliminar.html', {
+        'servicio': servicio
+    })
