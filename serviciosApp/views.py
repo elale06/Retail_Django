@@ -102,6 +102,7 @@ def servicio_crear(request):
         'form_precio': form_precio
     })
 
+@login_required(login_url='login_servicios')
 def precio_crear(request):
     form = PrecioServicioForm(request.POST or None)
 
@@ -113,6 +114,7 @@ def precio_crear(request):
         'form': form
     })
 
+@login_required(login_url='login_servicios')
 def editar_servicio(request, id):
     servicio = get_object_or_404(Servicio, id = id)
 
@@ -145,6 +147,7 @@ def editar_servicio(request, id):
         'precio': precio
     })
 
+@login_required(login_url='login_servicios')
 def servicio_eliminar(request, id):
     servicio = get_object_or_404(Servicio, id=id)
     servicio.delete()
