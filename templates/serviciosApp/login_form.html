@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es-cl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="{% static 'CSS/estilo.css' %}">
+</head>
+
+<body>
+    <div class="box">
+        <h1>Iniciar Sesión</h1>
+        <p>Ingresa tus credenciales para acceder al CRUD</p>
+        <form method="POST" id="formLogin" novalidate>
+            {% csrf_token %}
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Nombre de Usuario"
+                required
+            >
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Contraseña"
+                required
+            >
+            <button type="submit">
+                Ingresar al sistema
+            </button>
+        </form>
+
+        <script>
+            const formulario = document.getElementById('formLogin');
+            const usuario = document.getElementById('username');
+            const password = document.getElementById('password');
+
+            formulario.addEventListener('submit', function(event) {
+                usuario.setCustomValidity('');
+                password.setCustomValidity('');
+
+                if (usuario.value.trim() === '') {
+                    event.preventDefault();
+                    usuario.setCustomValidity('Por favor, completa este campo.');
+                    usuario.reportValidity();
+                    return;
+                }
+
+                if (password.value.trim() === '') {
+                    event.preventDefault();
+                    password.setCustomValidity('Por favor, completa este campo.');
+                    password.reportValidity();
+                    return;
+                }
+            });
+
+            usuario.addEventListener('input', function() {
+                usuario.setCustomValidity('');
+            });
+            password.addEventListener('input', function() {
+                password.setCustomValidity('');
+            });
+        </script>
+        {% if error_message %}
+            {% for message in messages %}
+                <div class="error-message">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        <p>¿No tienes cuenta?</p>
+        <a class="button" href="{% url 'registro_usuario' %}">
+            Crear una cuenta
+        </a>
+
+        <a class="back" href="/">
+            Volver
+        </a>
+    </div>
+</body>
+
+</html>
