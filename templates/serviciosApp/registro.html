@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es-cl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="{% static 'CSS/estilo.css' %}">
+</head>
+
+<body>
+    <div class="box">
+        <h1>Crear Cuenta</h1>
+        <p>Registrate para acceder al sistema CRUD</p>
+
+        <form method="POST" action="{% url 'registro_usuario' %}">
+            {% csrf_token %}
+            <input
+                type="text"
+                name="username"
+                placeholder="Nombre de Usuario"
+                required 
+            >
+            <input
+                type="password"
+                name="password"
+                placeholder="Contraseña"
+                required
+            >
+            <input
+                type="password"
+                name="password2"
+                placeholder="Confirmar Contraseña"
+                required
+            >
+            <button type="submit">
+                Registrarse
+            </button>
+        </form>
+
+        {% if messages %}
+            {% for message in messages %}
+                <p class="{% if message.tags == 'success' %}success{% else %}error{% endif %}">
+                    {{ message }}
+                </p>
+            {% endfor %}
+        {% endif %}
+
+        <a class="back" href="{% url 'login_servicios' %}">
+            Volver al inicio de sesión
+        </a>
+    </div>
+</body>
+
+</html>
