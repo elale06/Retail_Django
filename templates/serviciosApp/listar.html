@@ -12,7 +12,17 @@
         <a href="/">Menú</a>
         <a href="/informacion/">Información</a>
         <a href="/servicios/">Servicios</a>
-        <a href="/servicios/login/">Login</a>
+
+        <span class="usuario">
+            Usuario: {{ request.user.username }}
+        </span>
+
+        <form method="POST" action="{% url 'cerrar_sesion' %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn-logout">
+                Cerrar Sesión
+            </button>
+        </form>
     </nav>
 
     <div class="page-shell">
