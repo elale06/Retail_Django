@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar Servicio</title>
+    <link rel="stylesheet" href="{% static 'CSS/estilos.css' %}">
+</head>
+
+<body>
+
+    <div class="nav">
+        <a href="/">Menú</a> |
+        <a href="/informacion/">Información</a> |
+        <a href="/servicios/">Servicios</a> |
+
+        <span class="usuario">
+            Usuario: {{ request.user.username }}
+        </span>
+
+        <form method="POST" action="{% url 'cerrar_sesion' %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn-logout">
+                Cerrar sesión
+            </button>
+        </form>
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>🗑 Eliminar Servicio</h2>
+            <p>¿Seguro que deseas eliminar este servicio?</p>
+            <h3>{{ servicio.nombre }}</h3>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <button type="submit" class="btn danger">
+                    Sí, eliminar
+                </button>
+
+                <a href="/servicios/" class="btn cancel">
+                    Cancelar
+                </a>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
