@@ -77,6 +77,7 @@ def cerrar_sesion(request):
         return redirect('login_servicios')
     return redirect('listar_servicios')
 
+@login_required(login_url='login_servicios')
 def servicios_list(request):
     servicios = Servicio.objects.all()
     return render(request, 'serviciosApp/listar.html', {'servicios': servicios})
