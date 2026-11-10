@@ -10,22 +10,21 @@
 </head>
 
 <body>
-    <div class="page-shell">
-        <div class="container card">
-            <h2>Crear Servicio</h2>
-            <form method="post">
-                {% csrf_token %}
+    <div class="nav">
+        <a href="/">Menú</a>
+        <a href="/informacion/">Información</a>
+        <a href="/servicios/">Servicios</a>
 
-                <h3>Datos del Servicio</h3>
-                {{ form_servicio.as_p }}
+        <span class="usuario">
+            Usuario: {{ request.user.username }}
+        </span>
 
-                <h3>Precio</h3>
-                {{ form_precio.as_p }}
-
-                <button type="submit">Guardar</button>
-            </form>
-            <a class="back" href="/servicios/">Volver a Servicios</a>
-        </div>
+        <form method="POST" action="{% url 'cerrar_sesion' %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn-logout">
+                Cerrar sesión
+            </button>
+        </form>
     </div>
 </body>
 
