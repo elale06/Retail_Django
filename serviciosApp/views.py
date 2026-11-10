@@ -82,6 +82,7 @@ def servicios_list(request):
     servicios = Servicio.objects.all()
     return render(request, 'serviciosApp/listar.html', {'servicios': servicios})
 
+@login_required(login_url='login_servicios')
 def servicio_crear(request):
     form_servicio = ServicioForm(request.POST or None)
     form_precio = PrecioServicioCrearForm(request.POST or None)
